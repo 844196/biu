@@ -1,0 +1,21 @@
+{
+    "name": "_844196/biu",
+    "authors": [
+        {
+            "name": "Masaya Takeda",
+            "email": "844196@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App/"
+        }
+    },
+    "require": {
+        "fzaninotto/Streamer": "^0.0.1",
+        "datto/json-rpc": "~4.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.0"
+    }
+}
