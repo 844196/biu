@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace App\Procedure;
 
+use DI\Container;
 use Datto\JsonRpc\Evaluator;
 use Datto\JsonRpc\Exception\Argument;
 use Datto\JsonRpc\Exception\Method;
@@ -19,22 +20,40 @@ use Datto\JsonRpc\Exception\Method;
 class ProcedureHandler implements Evaluator
 {
 	/**
+	 * @var Container
+	 */
+	private $container;
+
+	/**
 	 * @var array [methodName => procedureName, ...]
 	 */
 	private $procedures = [];
+
+	/**
+	 * @param Container $container
+	 */
+	public function __construct(Container $container)
+	{
+		$this->container = $container;
+	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function evaluate($methodName, $givenParams)
 	{
-		$procedureName = $this->procedures[$methodName] ?? null;
-		if (is_null($procedureName)) {
+		$mappedProcedure = $this->procedures[$methodName] ?? null;
+		if (is_null($mappedProcedure)) {
 			throw new Method();
 		}
 
-		// TODO m-takeda: support DI container
-		$procedure = new $procedureName;
+		$procedure = $mappedProcedure;
+		if (is_string($procedure)) {
+			$procedure = $this
+				->container
+				->get($procedure);
+		}
+
 		$resolvedParams = $this->resolveParam(
 			$givenParams,
 			new \ReflectionMethod($procedure, '__invoke')

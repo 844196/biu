@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use DI\ContainerBuilder;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-// TODO m-takeda: setup DI container
+return (new ContainerBuilder())->build();
