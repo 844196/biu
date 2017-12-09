@@ -63,17 +63,21 @@ class ProcedureHandler implements Evaluator
 	}
 
 	/**
-	 * @param string $methodName
-	 * @param string $procedureName
+	 * @param string                 $methodName
+	 * @param string|\Closure|object $procedure
 	 * @return self
 	 */
-	public function with(string $methodName, string $procedureName): self
+	public function with(string $methodName, $procedure): self
 	{
-		// TODO m-takeda: support closure and anonymous class
-		$this->procedures[$methodName] = $procedureName;
+		$this->procedures[$methodName] = $procedure;
 		return $this;
 	}
 
+	/**
+	 * @param array             $givenParams
+	 * @param \ReflectionMethod $procedure
+	 * @return string[]
+	 */
 	private function resolveParam(array $givenParams, \ReflectionMethod $procedure): array
 	{
 		if (empty($procedure->getParameters())) {
