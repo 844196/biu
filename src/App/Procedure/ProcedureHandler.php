@@ -76,6 +76,7 @@ class ProcedureHandler implements Evaluator
 	/**
 	 * @param array             $givenParams
 	 * @param \ReflectionMethod $procedure
+	 * @throws Argument
 	 * @return string[]
 	 */
 	private function resolveParam(array $givenParams, \ReflectionMethod $procedure): array
