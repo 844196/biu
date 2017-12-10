@@ -14,7 +14,8 @@
     "require": {
         "fzaninotto/Streamer": "^0.0.1",
         "datto/json-rpc": "~4.0",
-        "php-di/php-di": "^5.4"
+        "php-di/php-di": "^5.4",
+        "nikic/php-parser": "^3.1"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.0"

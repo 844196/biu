@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "db5d61d65877607913728fa5bb1a6ae2",
-    "content-hash": "c0da929384b9fbcece6d5e0ab7cd6f03",
+    "hash": "19e756b09b3d6d69111af4f80acce714",
+    "content-hash": "b6760fb9bb4e0410ec4d0aca2d0de928",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -123,6 +123,57 @@
             "description": "Object-oriented API to PHP streams",
             "homepage": "https://github.com/fzaninotto/Streamer",
             "time": "2012-07-02 21:44:09"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v3.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2017-11-04 11:48:34"
         },
         {
             "name": "php-di/invoker",

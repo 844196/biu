@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 use DI\ContainerBuilder;
 
-require __DIR__ . '/../vendor/autoload.php';
+const APPROOT = __DIR__ . '/..';
 
-return (new ContainerBuilder())->build();
+require APPROOT . '/vendor/autoload.php';
+
+return (new ContainerBuilder())
+	->addDefinitions(__DIR__ . '/dependency.php')
+	->build();
