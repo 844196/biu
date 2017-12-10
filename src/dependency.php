@@ -9,6 +9,6 @@ declare(strict_types=1);
 
 return [
 	\PhpParser\Parser::class => function () {
-		return (new \PhpParser\ParserFactory())->create(\PhpParser\PhpParserFactory::PREFER_PHP7);
+		return (new \PhpParser\ParserFactory())->create(\PhpParser\ParserFactory::PREFER_PHP7);
 	},
 ];
