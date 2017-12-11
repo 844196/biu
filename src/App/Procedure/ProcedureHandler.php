@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace App\Procedure;
 
-use DI\Container;
 use Datto\JsonRpc\Evaluator;
 use Datto\JsonRpc\Exception\Argument;
 use Datto\JsonRpc\Exception\Method;
+use Interop\Container\ContainerInterface;
 
 /**
  * ProcedureHandler
@@ -20,7 +20,7 @@ use Datto\JsonRpc\Exception\Method;
 class ProcedureHandler implements Evaluator
 {
 	/**
-	 * @var Container
+	 * @var ContainerInterface
 	 */
 	private $container;
 
@@ -30,9 +30,9 @@ class ProcedureHandler implements Evaluator
 	private $procedures = [];
 
 	/**
-	 * @param Container $container
+	 * @param ContainerInterface $container
 	 */
-	public function __construct(Container $container)
+	public function __construct(ContainerInterface $container)
 	{
 		$this->container = $container;
 	}
